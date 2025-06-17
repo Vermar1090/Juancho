@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes Aleatorios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+        
+        .mensaje {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #333;
+            min-height: 20px;
+            border-left: 4px solid #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>💝 Mensajes Especiales</h2>
+        <button onclick="tocar()">¡Tócame!</button>
+        <div id="mensaje" class="mensaje">Haz clic en el botón para ver un mensaje</div>
+    </div>
+
+    <script>
+        var data = {
+            1: "Si supieras lo hermosa que te ves cuando sonríes",
+            2: "Eres la mejor cosa que me ha pasado en la vida",
+            3: "Tu sonrisa ilumina mi día como el sol",
+            4: "Eres increíble tal como eres",
+            5: "Tu bondad hace del mundo un lugar mejor",
+            6: "Cada momento contigo es un regalo",
+            7: "Tu risa es la melodía más hermosa que he escuchado",
+            8: "Eres la razón por la que creo en el amor verdadero",
+            9: "Tu belleza trasciende lo físico, brillas por dentro",
+            10: "Contigo he aprendido el verdadero significado de la felicidad",
+            11: "Eres mi persona favorita en todo el universo",
+            12: "Tu corazón es tan grande como tu belleza",
+            13: "Cada día a tu lado es una nueva aventura",
+            14: "Eres la inspiración detrás de mis mejores momentos",
+            15: "Tu presencia convierte lo ordinario en extraordinario",
+            16: "Eres más valiosa que todos los tesoros del mundo",
+            17: "Tu amor es mi refugio en los días difíciles",
+            18: "Eres la definición perfecta de la palabra 'especial'",
+            19: "Tu mirada tiene el poder de calmar cualquier tormenta",
+            20: "Eres mi estrella guía en la oscuridad",
+            21: "Tu existencia hace que el mundo sea más colorido",
+            22: "Eres la poesía que nunca supe que necesitaba",
+            23: "Tu abrazo es mi lugar favorito en el mundo",
+            24: "Eres más fuerte de lo que imaginas",
+            25: "Tu inteligencia me fascina cada día",
+            26: "Eres la prueba de que los ángeles existen",
+            27: "Tu voz es música para mis oídos",
+            28: "Eres mi sol en los días nublados",
+            29: "Tu amor me ha transformado en la mejor versión de mí mismo",
+            30: "Eres perfecta con todas tus imperfecciones",
+            31: "Tu paciencia es admirable y hermosa",
+            32: "Eres mi sueño hecho realidad",
+            33: "Tu generosidad no conoce límites",
+            34: "Eres la razón por la que sonrío sin motivo",
+            35: "Tu fortaleza me inspira a ser mejor",
+            36: "Eres mi cómplice en todas las aventuras",
+            37: "Tu sensibilidad es una de tus cualidades más hermosas",
+            38: "Eres la calma después de la tormenta",
+            39: "Tu creatividad me sorprende constantemente",
+            40: "Eres mi hogar, sin importar dónde estemos",
+            41: "Tu compasión toca los corazones de todos",
+            42: "Eres la historia de amor más hermosa que conozco",
+            43: "Tu determinación es admirable",
+            44: "Eres mi refugio y mi aventura al mismo tiempo",
+            45: "Tu humildad te hace aún más especial",
+            46: "Eres la luz que necesitaba en mi vida",
+            47: "Tu lealtad es un tesoro invaluable",
+            48: "Eres más hermosa cuando no te das cuenta",
+            49: "Tu espontaneidad llena de alegría mis días",
+            50: "Eres mi persona favorita para compartir silencios",
+            51: "Tu optimismo es contagioso y hermoso",
+            52: "Eres la magia que creía perdida",
+            53: "Tu autenticidad es refrescante en este mundo",
+            54: "Eres mi razón para creer en los finales felices",
+            55: "Tu presencia es el mejor regalo que he recibido",
+            56: "Eres más valiente de lo que crees",
+            57: "Tu amor propio me enseña a amarme también",
+            58: "Eres la definición de la palabra 'única'",
+            59: "Tu pasión por la vida es inspiradora",
+            60: "Eres mi compañera de sueños y realidades",
+            61: "Tu sabiduría supera tu edad",
+            62: "Eres el mejor capítulo de mi historia",
+            63: "Tu energía positiva transforma todo a tu alrededor",
+            64: "Eres mi ancla en medio de cualquier tormenta",
+            65: "Tu dulzura endulza hasta los días más amargos",
+            66: "Eres la respuesta a oraciones que no sabía que tenía",
+            67: "Tu manera de ver el mundo me fascina",
+            68: "Eres más necesaria en mi vida de lo que imaginas",
+            69: "Tu amor me da fuerzas para conquistar el mundo",
+            70: "Eres mi definición personal de la perfección",
+            71: "Tu risa es mi sonido favorito en el universo",
+            72: "Eres la tranquilidad que mi alma necesitaba",
+            73: "Tu amor me hace sentir invencible",
+            74: "Eres la pieza que faltaba en mi rompecabezas",
+            75: "Tu belleza interior eclipsa cualquier belleza externa",
+            76: "Eres mi motivación para ser mejor cada día",
+            77: "Tu comprensión no tiene límites",
+            78: "Eres el amor de mi vida y mi mejor amiga",
+            79: "Tu apoyo incondicional es mi mayor fortaleza",
+            80: "Eres más especial de lo que las palabras pueden expresar",
+            81: "Tu manera de amar es pura y genuina",
+            82: "Eres mi inspiración diaria",
+            83: "Tu presencia hace que todo tenga sentido",
+            84: "Eres la personificación de todo lo bueno",
+            85: "Tu corazón es el lugar más hermoso que conozco",
+            86: "Eres mi compañera de aventuras para toda la vida",
+            87: "Tu amor me ha enseñado a volar",
+            88: "Eres más hermosa cada día que pasa",
+            89: "Tu alma es tan pura como el agua cristalina",
+            90: "Eres mi universo completo en una sola persona",
+            91: "Tu amor es mi combustible para conquistar el mundo",
+            92: "Eres la melodía que mi corazón siempre quiso cantar",
+            93: "Tu existencia es la mejor coincidencia del universo",
+            94: "Eres mi paz en medio del caos",
+            95: "Tu amor me hace creer en la magia",
+            96: "Eres la obra maestra más hermosa de la creación",
+            97: "Tu corazón es mi hogar favorito",
+            98: "Eres mi para siempre en un mundo de temporales",
+            99: "Tu amor es mi refugio y mi aventura",
+            100: "Eres simplemente perfecta siendo tú misma"
+        };
+
+        function random(obj) {
+            var keys = Object.keys(obj);
+            var randomKey = keys[Math.floor(Math.random() * keys.length)];
+            return obj[randomKey];
+        }
+
+        function tocar() {
+            var glo = random(data);
+            document.getElementById('mensaje').innerHTML = glo;
+        }
+    </script>
+</body>
+</html>
